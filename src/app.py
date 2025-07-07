@@ -15,7 +15,7 @@ def health():
     return jsonify({
         'Time' : datetime.datetime.now().strftime("%I:%M:%S%p on %B %d, %Y"), 
         'Hostname' : socket.gethostname(),
-        'message' : 'Transaction Fail'}), 404
+        'message' : 'Transaction Fail'}), 200
 
 # main driver function
 if __name__ == '__main__':
