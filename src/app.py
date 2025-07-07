@@ -5,17 +5,21 @@ import socket
 
 app = Flask(__name__)
 
-@app.route('/api/v1/customerinfo')
+@app.route('/api/v1/info')
 
-def customerinfo():
-    return jsonify({'TraceID' : 1234567, 'message' : 'Transaction Successfull'}), 200
+def info():
+    return jsonify({
+    	'time': datetime.datetime.now().strftime("%I:%M:%S%p  on %B %d, %Y"),
+    	'hostname': socket.gethostname(),
+        'message': 'You are doing great, little human! <3',
+        'deployed_on': 'kubernetes'
+    })
+
 
 @app.route('/api/v1/healthz')
 def health():
-    return jsonify({
-        'Time' : datetime.datetime.now().strftime("%I:%M:%S%p on %B %d, %Y"), 
-        'Hostname' : socket.gethostname(),
-        'message' : 'Transaction Fail'}), 200
+	# Do an actual check here
+    return jsonify({'status': 'up'}), 200
 
 # main driver function
 if __name__ == '__main__':
