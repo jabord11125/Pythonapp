@@ -18,7 +18,6 @@ def info():
 
 @app.route('/api/v1/health')
 def health():
-	# Do an actual check here
     return jsonify({'status': 'up'}), 200
 
 # main driver function
