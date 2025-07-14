@@ -1,0 +1,9 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: self-husted-runners
+spec:
+  replicas: 1
+  template:
+    spec:
+      repository: jabord11125/Pythonapp
